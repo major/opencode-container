@@ -12,7 +12,7 @@ ARG GLAB_VERSION=1.108.0
 # ============================================================================
 # Builder stage: download and extract opencode, gh, glab binaries
 # ============================================================================
-FROM registry.fedoraproject.org/fedora:44@sha256:7fe670b1256501fbcbcccdef586bbcb9cb93d5737a341aa562c070853e08be52 AS builder
+FROM registry.fedoraproject.org/fedora:44@sha256:b4087c9dd39f6bc163b4f5da1534328f093892ed586b70d0b1ab9c68e354865d AS builder
 
 ARG TARGETARCH
 ARG OPENCODE_VERSION
@@ -51,7 +51,7 @@ RUN if [ "$TARGETARCH" = "amd64" ]; then \
 # ============================================================================
 # Final stage: minimal runtime image with opencode and its dependencies
 # ============================================================================
-FROM registry.fedoraproject.org/fedora:44@sha256:7fe670b1256501fbcbcccdef586bbcb9cb93d5737a341aa562c070853e08be52
+FROM registry.fedoraproject.org/fedora:44@sha256:b4087c9dd39f6bc163b4f5da1534328f093892ed586b70d0b1ab9c68e354865d
 
 # Install runtime dependencies only
 # Note: grep, bash, ca-certificates are already present in fedora:44 base image
